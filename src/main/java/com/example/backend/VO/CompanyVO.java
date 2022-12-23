@@ -1,0 +1,35 @@
+package com.example.backend.VO;
+
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.ToString;
+
+import java.util.List;
+
+@Entity
+@ToString
+@Getter
+@Table(name = "company")
+@RequiredArgsConstructor
+public class CompanyVO {
+
+    @Id
+    @Column(name = "com_id")
+    private Long id;
+
+    @JoinColumn
+    @OneToMany(mappedBy = "company")
+    @ToString.Exclude
+    private List<EmploymentVO> employment;
+
+    @Column(name = "com_name")
+    private String name;
+
+    @Column(name = "com_country")
+    private String country;
+
+    @Column(name = "com_area")
+    private String area;
+
+}
