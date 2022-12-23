@@ -1,2 +1,4 @@
-package com.example.backend.DTO;public class CompanyEmployment {
+package com.example.backend.DTO;
+
+public class CompanyEmployment {
 }
