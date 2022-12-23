@@ -10,7 +10,7 @@ import lombok.ToString;
 @ToString
 @RequiredArgsConstructor
 @Table(name = "employment")
-public class EmploymentVO {
+public class Employment {
     @Id
     @Column(name = "emp_id")
     private Long id;
@@ -18,7 +18,7 @@ public class EmploymentVO {
     @JoinColumn(name = "com_id")
     @ManyToOne(fetch = FetchType.LAZY)
     @ToString.Exclude
-    private CompanyVO company;
+    private Company company;
 
     @Column(name = "emp_position")
     private String position;
