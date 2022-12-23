@@ -170,7 +170,7 @@ etc 4-1. [선택 과제] 채용 공고 검색 기능 구현
 --- 
 
 ### ERD
-![gdsc_week1_채용공고 ERD.png](gdsc_week1_채용공고 ERD.png)
+![gdsc_week1_채용공고 ERD.png](gdsc_week1_채용공고%20ERD.png)
 
 ---
 ### 역할 분담
