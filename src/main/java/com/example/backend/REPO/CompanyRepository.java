@@ -1,2 +1,8 @@
-package com.example.backend.REPO;public interface CompanyRepository {
+package com.example.backend.REPO;
+
+import com.example.backend.entity.Company;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+public interface CompanyRepository extends JpaRepository<Company, Long> {
 }
