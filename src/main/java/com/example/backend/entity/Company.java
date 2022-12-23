@@ -12,7 +12,7 @@ import java.util.List;
 @Getter
 @Table(name = "company")
 @RequiredArgsConstructor
-public class CompanyVO {
+public class Company {
 
     @Id
     @Column(name = "com_id")
@@ -21,7 +21,7 @@ public class CompanyVO {
     @JoinColumn
     @OneToMany(mappedBy = "company")
     @ToString.Exclude
-    private List<EmploymentVO> employment;
+    private List<Employment> employment;
 
     @Column(name = "com_name")
     private String name;
