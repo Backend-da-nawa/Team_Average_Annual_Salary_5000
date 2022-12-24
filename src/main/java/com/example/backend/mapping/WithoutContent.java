@@ -3,7 +3,7 @@ package com.example.backend.mapping;
 import com.example.backend.entity.Company;
 
 public interface WithoutContent {
-    Long getID();
+    Long getId();
     Company getCompany();
     String getPosition();
     Long getCompensation();
