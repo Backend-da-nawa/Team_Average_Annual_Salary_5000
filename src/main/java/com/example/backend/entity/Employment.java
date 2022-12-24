@@ -1,5 +1,6 @@
 package com.example.backend.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -15,6 +16,7 @@ public class Employment {
     @Column(name = "emp_id")
     private Long id;
 
+    @JsonIgnore
     @JoinColumn(name = "com_id")
     @ManyToOne(fetch = FetchType.LAZY)
     @ToString.Exclude
