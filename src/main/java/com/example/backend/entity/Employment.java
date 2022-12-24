@@ -1,7 +1,8 @@
 package com.example.backend.entity;
 
-import jakarta.persistence.*;
 import lombok.*;
+
+import javax.persistence.*;
 
 @Entity
 @Getter
@@ -9,7 +10,8 @@ import lombok.*;
 @NoArgsConstructor
 @Table(name = "employment")
 public class Employment {
-    @Id @NonNull
+    @Id
+    @NonNull
     @Column(name = "emp_id")
     private Long id;
 
