@@ -14,7 +14,6 @@ import java.util.List;
 @RequiredArgsConstructor
 public class EmploymentService {
     private final EmploymentRepository employmentRepository;
-    private final CompanyRepository companyRepository;
 
     @Transactional
     public List<WithoutContent> load() throws Exception {
