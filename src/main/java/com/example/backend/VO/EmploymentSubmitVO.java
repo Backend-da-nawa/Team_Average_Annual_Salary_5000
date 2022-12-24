@@ -1,5 +1,14 @@
 package com.example.backend.VO;
 
-public class submitVO {
-    private 
+import lombok.Getter;
+
+@Getter
+public class EmploymentSubmitVO {
+    private Long id;
+    private Long comId;
+    private Long compensation;
+    private String content;
+    private String position;
+    private String stack;
+
 }
