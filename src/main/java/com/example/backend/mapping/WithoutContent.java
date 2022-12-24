@@ -2,7 +2,7 @@ package com.example.backend.mapping;
 
 import com.example.backend.entity.Company;
 
-public interface EmploymentLoadMapping {
+public interface WithoutContent {
     Long getID();
     Company getCompany();
     String getPosition();
