@@ -2,39 +2,28 @@ package com.example.backend.DTO;
 
 import com.example.backend.entity.Company;
 import com.example.backend.entity.Employment;
-import lombok.Builder;
-import lombok.Data;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-import java.util.Optional;
+import javax.persistence.*;
 
 @Getter
 @NoArgsConstructor
 @Data
-public class submitDTO {
-
-    private Long com_id;
-    private String com_name;
-    private String com_country;
-    private String com_area;
-    private String emp_position;
-    private Long emp_compensation;
-    private String emp_stack;
+public class EmploymentSubmitDTO {
+    private Long id;
+    private Company company;
+    private String position;
+    private Long compensation;
+    private String stack;
+    private String content;
 
     @Builder
-    public submitDTO(Company company) {
-        this.com_id = company.getId();
-        this.com_name = company.getName();
-        this.com_country = company.getCountry();
-        this.com_area = company.getArea();
+    public EmploymentSubmitDTO(Long id, Company company, String position, Long compensation, String stack, String content) {
+        this.id = id;
+        this.company = company;
+        this.position = position;
+        this.compensation = compensation;
+        this.stack = stack;
+        this.content = content;
     }
-
-    @Builder
-    public submitDTO(Employment employment) {
-        this.emp_position = employment.getPosition();
-        this.emp_compensation = employment.getCompensation();
-        this.emp_stack = employment.getStack();
-    }
-
 }
