@@ -18,10 +18,11 @@ public class Company {
     @Column(name = "com_id")
     private Long id;
 
-    @JoinColumn
-    @OneToMany(mappedBy = "company")
+    @OneToMany(mappedBy = "company",
+            fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL)
     @ToString.Exclude
-    private List<Employment> employment;
+    private List<Employment> employments;
 
     @Column(name = "com_name")
     private String name;
