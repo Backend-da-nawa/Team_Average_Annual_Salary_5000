@@ -1,6 +1,6 @@
 package com.example.backend.controller;
 
-import com.example.backend.entity.Employment;
+import com.example.backend.mapping.WithoutContent;
 import com.example.backend.service.EmploymentService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -17,7 +17,7 @@ public class EmploymentController {
     private final EmploymentService employmentService;
 
     @GetMapping("/employ/load")
-    public List<Employment> load() throws Exception {
+    public List<WithoutContent> load() throws Exception {
         return employmentService.load();
     }
 }
