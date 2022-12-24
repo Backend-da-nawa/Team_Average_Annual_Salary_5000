@@ -1,17 +1,15 @@
 package com.example.backend.entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 @Entity
 @Getter
 @ToString
-@RequiredArgsConstructor
+@NoArgsConstructor
 @Table(name = "employment")
 public class Employment {
-    @Id
+    @Id @NonNull
     @Column(name = "emp_id")
     private Long id;
 
@@ -21,12 +19,16 @@ public class Employment {
     private Company company;
 
     @Column(name = "emp_position")
+    @NonNull
     private String position;
 
     @Column(name = "emp_compensation")
     private Long compensation;
 
     @Column(name = "emp_stack")
+    @NonNull
     private String stack;
 
+    @Column(name = "emp_content")
+    private String content;
 }
