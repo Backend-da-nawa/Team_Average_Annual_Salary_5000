@@ -2,6 +2,7 @@ package com.example.backend.service;
 
 import com.example.backend.REPO.CompanyRepository;
 import com.example.backend.REPO.EmploymentRepository;
+import com.example.backend.entity.Company;
 import com.example.backend.mapping.WithoutContent;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -17,9 +18,6 @@ public class EmploymentService {
 
     @Transactional
     public List<WithoutContent> load() throws Exception {
-//        List<WithoutContent> employments = employmentRepository.findAllEmploymentLoadProjectionBy();
-
-//        return employments;
-        return null;
+        return employmentRepository.findAllBy();
     }
 }
