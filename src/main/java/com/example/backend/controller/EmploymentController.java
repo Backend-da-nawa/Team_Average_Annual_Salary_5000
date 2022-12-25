@@ -1,11 +1,7 @@
 package com.example.backend.controller;
 
 import com.example.backend.DTO.LoadDTO;
-import com.example.backend.REPO.CompanyRepository;
-import com.example.backend.entity.Company;
-import com.example.backend.mapping.WithoutContent;
 import com.example.backend.service.EmploymentService;
-import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,9 +22,9 @@ public class EmploymentController {
         return employmentService.load();
     }
 
-    @GetMapping("/employ/load")
-    public List<LoadDTO> search(@RequestParam String search) throws Exception {
-        return employmentService.search(search);
+    @GetMapping("/employ/search")
+    public List<LoadDTO> search(@RequestParam String keyword) throws Exception {
+        return employmentService.search(keyword);
     }
 
 }
