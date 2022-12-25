@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 @RestController
 @Slf4j
-public class CompanyController {
+public class EmploymentDetailController {
     private final CompanyService companyService;
 
 
