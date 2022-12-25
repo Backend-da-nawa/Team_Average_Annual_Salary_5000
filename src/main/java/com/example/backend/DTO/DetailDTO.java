@@ -7,35 +7,37 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import java.util.Optional;
+import java.util.List;
 
 @Getter
 @NoArgsConstructor
 @Data
-public class LoadDTO {
+public class DetailDTO {
 
 //    private Company company;
-    private Long com_id;
-    private String com_name;
-    private String com_country;
-    private String com_area;
-    private String emp_position;
-    private Long emp_compensation;
-    private String emp_stack;
+    private Long empId;
+    private String comName;
+    private String comCountry;
+    private String comArea;
+    private String empPosition;
+    private Long empCompensation;
+    private String empStack;
+    private String empContent;
+    private List<Long> anotherEmployment;
 
     @Builder
-    public LoadDTO(Company company) {
-        this.com_id = company.getId();
-        this.com_name = company.getName();
-        this.com_country = company.getCountry();
-        this.com_area = company.getArea();
+    public DetailDTO(Company company) {
+        this.empId = company.getId();
+        this.comName = company.getName();
+        this.comCountry = company.getCountry();
+        this.comArea = company.getArea();
     }
 
     @Builder
-    public LoadDTO(Employment employment) {
-        this.emp_position = employment.getPosition();
-        this.emp_compensation = employment.getCompensation();
-        this.emp_stack = employment.getStack();
+    public DetailDTO(Employment employment) {
+        this.empPosition = employment.getPosition();
+        this.empCompensation = employment.getCompensation();
+        this.empStack = employment.getStack();
     }
 
 }
