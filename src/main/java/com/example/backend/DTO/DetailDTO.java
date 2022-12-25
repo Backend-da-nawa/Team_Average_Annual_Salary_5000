@@ -26,18 +26,16 @@ public class DetailDTO {
     private List<Long> anotherEmployment;
 
     @Builder
-    public DetailDTO(Company company) {
-        this.empId = company.getId();
-        this.comName = company.getName();
-        this.comCountry = company.getCountry();
-        this.comArea = company.getArea();
-    }
-
-    @Builder
-    public DetailDTO(Employment employment) {
+    public DetailDTO(Employment employment, List<Long> empIdList) {
+        this.empId = employment.getId();
+        this.comName = employment.getCompany().getName();
+        this.comCountry = employment.getCompany().getCountry();
+        this.comArea = employment.getCompany().getArea();
         this.empPosition = employment.getPosition();
         this.empCompensation = employment.getCompensation();
         this.empStack = employment.getStack();
+        this.empContent = employment.getContent();
+        this.anotherEmployment = empIdList;
     }
 
 }
