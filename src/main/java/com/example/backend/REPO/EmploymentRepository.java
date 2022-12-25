@@ -10,4 +10,5 @@ import java.util.List;
 @Repository
 public interface EmploymentRepository extends JpaRepository<Employment, Long> {
 
+
 }
