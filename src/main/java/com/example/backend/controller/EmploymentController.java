@@ -6,14 +6,11 @@ import com.example.backend.entity.Employment;
 import com.example.backend.service.EmploymentService;
 import com.sun.xml.bind.v2.model.core.ID;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
-@Controller
+@RestController
 public class EmploymentController {
     private  final EmploymentService employmentService;
 
@@ -22,8 +19,9 @@ public class EmploymentController {
     }
 
     @GetMapping("/employ/delete")
-    public void employDelete(@RequestParam Long id){
-        employmentService.employDelete(id);
+    public Long employDelete(@RequestParam Long empId){
+
+        return employmentService.employDelete(empId);
     }
 
 }
