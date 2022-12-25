@@ -14,7 +14,7 @@ import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
-public class CompanyService {
+public class EmploymentDetailService {
 
     private final CompanyRepository companyRepository;
     private final EmploymentRepository employmentRepository;
