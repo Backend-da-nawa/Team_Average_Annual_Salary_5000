@@ -9,7 +9,9 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Service
 @RequiredArgsConstructor
@@ -31,32 +33,33 @@ public class EmploymentService {
     }
 
     @Transactional
-    public List<LoadDTO> search(String keyword) throws Exception {
-        List<LoadDTO> loadDTOList = new ArrayList<>();
+    public Set<LoadDTO> search(String keyword) throws Exception {
+        Set<LoadDTO> loadDTOList = new HashSet<>();
 
         companySearch(loadDTOList, keyword);
 
         stackSearch(loadDTOList, keyword);
 
+
         return loadDTOList;
     }
 
-    private void companySearch(List<LoadDTO> loadDTOList, String keyword) {
-        LoadDTO loadDTO;
-        List<WithoutContent> searchWithCompanyList = employmentRepository.findAllByCompany_NameLike(keyword);
+    private void companySearch(Set<LoadDTO> loadDTOList, String keyword) {
+//        LoadDTO loadDTO;
+        List<WithoutContent> searchWithCompanyList = employmentRepository.findAllByCompany_NameLike("%"+keyword+"%");
 
         for (WithoutContent companySearch : searchWithCompanyList) {
-            loadDTO = new LoadDTO(companySearch);
+            LoadDTO loadDTO = new LoadDTO(companySearch);
             loadDTOList.add(loadDTO);
         }
     }
 
-    private void stackSearch(List<LoadDTO> loadDTOList, String keyword) {
-        LoadDTO loadDTO;
-        List<WithoutContent> searchWithStackList = employmentRepository.findAllByStackLike(keyword);
+    private void stackSearch(Set<LoadDTO> loadDTOList, String keyword) {
+//        LoadDTO loadDTO;
+        List<WithoutContent> searchWithStackList = employmentRepository.findAllByStackLike("%"+keyword+"%");
 
         for (WithoutContent stackSearch : searchWithStackList) {
-            loadDTO = new LoadDTO(stackSearch);
+            LoadDTO loadDTO = new LoadDTO(stackSearch);
             loadDTOList.add(loadDTO);
         }
     }
