@@ -15,5 +15,14 @@ public class EmploymentModifyDTO {
     private String stack;
     private String content;
 
+    @Builder
+    public EmploymentModifyDTO(Long id, Company company, String position, Long compensation, String stack, String content) {
+        this.id = id;
+        this.company = company;
+        this.position = position;
+        this.compensation = compensation;
+        this.stack = stack;
+        this.content = content;
+    }
 
 }
