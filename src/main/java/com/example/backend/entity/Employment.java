@@ -1,9 +1,7 @@
 package com.example.backend.entity;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.NonNull;
-import lombok.ToString;
+import com.example.backend.DTO.EmploymentModifyDTO;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -38,5 +36,13 @@ public class Employment {
     @Column(name = "emp_content")
     private String content;
 
-
+    @Builder
+    public Employment(EmploymentModifyDTO employmentModifyDTO) {
+        this.id = employmentModifyDTO.getId();
+        this.company=employmentModifyDTO.getCompany();
+        this.compensation=employmentModifyDTO.getCompensation();
+        this.content= employmentModifyDTO.getContent();
+        this.position= employmentModifyDTO.getPosition();
+        this.stack=employmentModifyDTO.getStack();
+    }
 }
