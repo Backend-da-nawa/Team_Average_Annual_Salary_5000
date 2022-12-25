@@ -1,5 +1,6 @@
 package com.example.backend.controller;
 
+import com.example.backend.DTO.LoadDTO;
 import com.example.backend.REPO.CompanyRepository;
 import com.example.backend.entity.Company;
 import com.example.backend.mapping.WithoutContent;
@@ -20,7 +21,7 @@ public class EmploymentController {
     private final EmploymentService employmentService;
 
     @GetMapping("/employ/load")
-    public List<WithoutContent> load() throws Exception {
+    public List<LoadDTO> load() throws Exception {
         return employmentService.load();
     }
 }
