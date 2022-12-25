@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Set;
 
 @RequiredArgsConstructor
 @RestController
@@ -23,7 +24,7 @@ public class EmploymentController {
     }
 
     @GetMapping("/employ/search")
-    public List<LoadDTO> search(@RequestParam String keyword) throws Exception {
+    public Set<LoadDTO> search(@RequestParam String keyword) throws Exception {
         return employmentService.search(keyword);
     }
 
