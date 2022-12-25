@@ -19,7 +19,8 @@ public class EmploymentService {
     private final CompanyRepository companyRepository;
 
     @Transactional
-    public String employDelete(Long id)  {
-      EmploymentRepository.delete();
-
+    public Long employDelete(Long empId) {
+        employmentRepository.deleteById(empId);
+        return 1L;
+    }
 }
