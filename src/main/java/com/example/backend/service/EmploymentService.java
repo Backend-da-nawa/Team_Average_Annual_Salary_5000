@@ -1,9 +1,7 @@
 package com.example.backend.service;
 
 import com.example.backend.DTO.LoadDTO;
-import com.example.backend.REPO.CompanyRepository;
 import com.example.backend.REPO.EmploymentRepository;
-import com.example.backend.entity.Company;
 import com.example.backend.mapping.WithoutContent;
 import lombok.RequiredArgsConstructor;
 import lombok.With;
@@ -33,19 +31,19 @@ public class EmploymentService {
     }
 
     @Transactional
-    public List<LoadDTO> search(String search) throws Exception {
+    public List<LoadDTO> search(String keyword) throws Exception {
         List<LoadDTO> loadDTOList = new ArrayList<>();
 
-        companySearch(loadDTOList, search);
+        companySearch(loadDTOList, keyword);
 
-        stackSearch(loadDTOList, search);
+        stackSearch(loadDTOList, keyword);
 
         return loadDTOList;
     }
 
-    private void companySearch(List<LoadDTO> loadDTOList, String search) {
+    private void companySearch(List<LoadDTO> loadDTOList, String keyword) {
         LoadDTO loadDTO;
-        List<WithoutContent> searchWithCompanyList = employmentRepository.findAllByCompany_NameLike(search);
+        List<WithoutContent> searchWithCompanyList = employmentRepository.findAllByCompany_NameLike(keyword);
 
         for (WithoutContent companySearch : searchWithCompanyList) {
             loadDTO = new LoadDTO(companySearch);
@@ -53,9 +51,9 @@ public class EmploymentService {
         }
     }
 
-    private void stackSearch(List<LoadDTO> loadDTOList, String search) {
+    private void stackSearch(List<LoadDTO> loadDTOList, String keyword) {
         LoadDTO loadDTO;
-        List<WithoutContent> searchWithStackList = employmentRepository.findAllByStackLike(search);
+        List<WithoutContent> searchWithStackList = employmentRepository.findAllByStackLike(keyword);
 
         for (WithoutContent stackSearch : searchWithStackList) {
             loadDTO = new LoadDTO(stackSearch);
