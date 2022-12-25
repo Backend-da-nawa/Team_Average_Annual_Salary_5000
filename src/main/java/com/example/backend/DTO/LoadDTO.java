@@ -2,6 +2,7 @@ package com.example.backend.DTO;
 
 import com.example.backend.entity.Company;
 import com.example.backend.entity.Employment;
+import com.example.backend.mapping.WithoutContent;
 import lombok.Builder;
 import lombok.Data;
 import lombok.Getter;
@@ -12,7 +13,6 @@ import lombok.NoArgsConstructor;
 @Data
 public class LoadDTO {
 
-//    private Company company;
     private Long empId;
     private String comName;
     private String comCountry;
@@ -34,6 +34,17 @@ public class LoadDTO {
         this.empPosition = employment.getPosition();
         this.empCompensation = employment.getCompensation();
         this.empStack = employment.getStack();
+    }
+
+    @Builder
+    public LoadDTO(WithoutContent withoutContent) {
+        this.empId = withoutContent.getId();
+        this.comName = withoutContent.getCompany().getName();
+        this.comCountry = withoutContent.getCompany().getCountry();
+        this.comArea = withoutContent.getCompany().getArea();
+        this.empPosition = withoutContent.getPosition();
+        this.empCompensation = withoutContent.getCompensation();
+        this.empStack = withoutContent.getStack();
     }
 
 }
