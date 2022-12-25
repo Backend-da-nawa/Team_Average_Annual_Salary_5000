@@ -1,2 +1,7 @@
-package com.example.backend.controller;public class EmploymentController {
+package com.example.backend.controller;
+
+import org.springframework.stereotype.Controller;
+
+@Controller
+public class EmploymentController {
 }
