@@ -14,8 +14,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class CompanyController {
     private final CompanyService companyService;
 
-    @GetMapping("/company/jobOpening")
-    public Company read(@RequestParam Long id) throws Exception {
-        return companyService.read(id);
+
+    @GetMapping("/company/emp")
+    public Company read(@RequestParam Long empId) throws Exception {
+        return companyService.read(empId);
     }
 }
