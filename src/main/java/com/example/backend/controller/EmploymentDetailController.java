@@ -1,7 +1,7 @@
 package com.example.backend.controller;
 
-import com.example.backend.entity.Company;
-import com.example.backend.service.CompanyService;
+import com.example.backend.DTO.DetailDTO;
+import com.example.backend.service.EmploymentDetailService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,11 +12,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @Slf4j
 public class EmploymentDetailController {
-    private final CompanyService companyService;
+    private final EmploymentDetailService employmentDetailService;
 
 
     @GetMapping("/company/emp")
-    public Company read(@RequestParam Long empId) throws Exception {
-        return companyService.read(empId);
+    public DetailDTO read(@RequestParam Long empId) throws Exception {
+        return employmentDetailService.read(empId);
     }
 }
