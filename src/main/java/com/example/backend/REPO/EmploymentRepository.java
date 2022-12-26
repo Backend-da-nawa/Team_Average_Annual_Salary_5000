@@ -13,4 +13,5 @@ public interface EmploymentRepository extends JpaRepository<Employment, Long> {
     List<WithoutContent> findAllByCompany_NameLike(String keyword);
 
     List<WithoutContent> findAllByStackLike(String keyword);
+
 }

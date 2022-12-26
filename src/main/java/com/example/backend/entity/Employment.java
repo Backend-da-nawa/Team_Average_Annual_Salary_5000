@@ -1,8 +1,8 @@
 package com.example.backend.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.example.backend.DTO.EmploymentDTO;
 import lombok.*;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
 
 @Entity
@@ -35,4 +35,14 @@ public class Employment {
 
     @Column(name = "emp_content")
     private String content;
+
+    @Builder
+    public Employment(EmploymentDTO employmentDTO) {
+        this.id = employmentDTO.getId();
+        this.company = employmentDTO.getCompany();
+        this.compensation = employmentDTO.getCompensation();
+        this.content = employmentDTO.getContent();
+        this.position = employmentDTO.getPosition();
+        this.stack = employmentDTO.getStack();
+    }
 }
