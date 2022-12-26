@@ -1,23 +1,13 @@
 package com.example.backend.entity;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 import com.example.backend.DTO.EmploymentDTO;
-import com.example.backend.DTO.EmploymentModifyDTO;
 import lombok.*;
-=======
-=======
-import com.example.backend.DTO.EmploymentSubmitDTO;
->>>>>>> origin/submit_week1
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.ToString;
-<<<<<<< HEAD
->>>>>>> dcd043678b1b934eae92a7c13e94c0f564ea81cc
-=======
->>>>>>> origin/submit_week1
-
 import javax.persistence.*;
 
 
@@ -55,11 +45,11 @@ public class Employment {
     @Builder
     public Employment(EmploymentDTO employmentDTO) {
         this.id = employmentDTO.getId();
-        this.company=employmentDTO.getCompany();
-        this.compensation=employmentDTO.getCompensation();
-        this.content= employmentDTO.getContent();
-        this.position= employmentDTO.getPosition();
-        this.stack=employmentDTO.getStack();
+        this.company = employmentDTO.getCompany();
+        this.compensation = employmentDTO.getCompensation();
+        this.content = employmentDTO.getContent();
+        this.position = employmentDTO.getPosition();
+        this.stack = employmentDTO.getStack();
     }
-
+}
 
