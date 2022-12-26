@@ -1,7 +1,14 @@
 package com.example.backend.entity;
 
+<<<<<<< HEAD
 import com.example.backend.DTO.EmploymentModifyDTO;
 import lombok.*;
+=======
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.NonNull;
+import lombok.ToString;
+>>>>>>> dcd043678b1b934eae92a7c13e94c0f564ea81cc
 
 import javax.persistence.*;
 
@@ -36,6 +43,7 @@ public class Employment {
     @Column(name = "emp_content")
     private String content;
 
+<<<<<<< HEAD
     @Builder
     public Employment(EmploymentModifyDTO employmentModifyDTO) {
         this.id = employmentModifyDTO.getId();
@@ -45,4 +53,7 @@ public class Employment {
         this.position= employmentModifyDTO.getPosition();
         this.stack=employmentModifyDTO.getStack();
     }
+=======
+
+>>>>>>> dcd043678b1b934eae92a7c13e94c0f564ea81cc
 }
