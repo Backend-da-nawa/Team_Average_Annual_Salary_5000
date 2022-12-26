@@ -1,16 +1,18 @@
 package com.example.backend.service;
 
 import com.example.backend.DTO.EmploymentDTO;
+import com.example.backend.DTO.LoadDTO;
 import com.example.backend.REPO.CompanyRepository;
 import com.example.backend.REPO.EmploymentRepository;
 import com.example.backend.VO.EmploymentSubmitVO;
 import com.example.backend.entity.Company;
 import com.example.backend.entity.Employment;
+import com.example.backend.mapping.WithoutContent;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import java.util.Map;
+
+import java.util.*;
 import javax.transaction.Transactional;
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -72,5 +74,50 @@ public class EmploymentService {
 
     }
 
-}
+    @Transactional
+    public List<LoadDTO> load() throws Exception {
+        List<WithoutContent> mapping = employmentRepository.findAllBy();
 
+        List<LoadDTO> loadDTOList = new ArrayList<>();
+
+        for (WithoutContent withoutContent : mapping) {
+            LoadDTO loadDTO = new LoadDTO(withoutContent);
+            loadDTOList.add(loadDTO);
+        }
+
+        return loadDTOList;
+    }
+
+    @Transactional
+    public Set<LoadDTO> search(String keyword) throws Exception {
+        Set<LoadDTO> loadDTOList = new HashSet<>();
+
+        companySearch(loadDTOList, keyword);
+
+        stackSearch(loadDTOList, keyword);
+
+
+        return loadDTOList;
+    }
+
+    private void companySearch(Set<LoadDTO> loadDTOList, String keyword) {
+//        LoadDTO loadDTO;
+        List<WithoutContent> searchWithCompanyList = employmentRepository.findAllByCompany_NameLike("%"+keyword+"%");
+
+        for (WithoutContent companySearch : searchWithCompanyList) {
+            LoadDTO loadDTO = new LoadDTO(companySearch);
+            loadDTOList.add(loadDTO);
+        }
+    }
+
+    private void stackSearch(Set<LoadDTO> loadDTOList, String keyword) {
+//        LoadDTO loadDTO;
+        List<WithoutContent> searchWithStackList = employmentRepository.findAllByStackLike("%"+keyword+"%");
+
+        for (WithoutContent stackSearch : searchWithStackList) {
+            LoadDTO loadDTO = new LoadDTO(stackSearch);
+            loadDTOList.add(loadDTO);
+        }
+    }
+
+}

@@ -1,15 +1,9 @@
 package com.example.backend.entity;
 
-
 import com.example.backend.DTO.EmploymentDTO;
 import lombok.*;
-
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.NonNull;
-import lombok.ToString;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
-
 
 @Entity
 @Getter
@@ -22,6 +16,7 @@ public class Employment {
     @Column(name = "emp_id")
     private Long id;
 
+    @JsonIgnore
     @JoinColumn(name = "com_id")
     @ManyToOne(fetch = FetchType.LAZY)
     @ToString.Exclude
@@ -41,7 +36,6 @@ public class Employment {
     @Column(name = "emp_content")
     private String content;
 
-
     @Builder
     public Employment(EmploymentDTO employmentDTO) {
         this.id = employmentDTO.getId();
@@ -52,4 +46,3 @@ public class Employment {
         this.stack = employmentDTO.getStack();
     }
 }
-
