@@ -10,4 +10,7 @@ import java.util.List;
 @Repository
 public interface EmploymentRepository extends JpaRepository<Employment, Long> {
     List<WithoutContent> findAllBy();
+    List<WithoutContent> findAllByCompany_NameLike(String keyword);
+
+    List<WithoutContent> findAllByStackLike(String keyword);
 }
