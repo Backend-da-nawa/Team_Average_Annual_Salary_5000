@@ -1,26 +1,22 @@
 package com.example.backend.controller;
-<<<<<<< HEAD
 
 import com.example.backend.service.EmploymentService;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
-=======
-import com.example.backend.service.EmploymentService;
-import org.springframework.web.bind.annotation.*;
+import com.example.backend.VO.EmploymentSubmitVO;
 
->>>>>>> dcd043678b1b934eae92a7c13e94c0f564ea81cc
+
 @RestController
 public class EmploymentController {
-    private  final EmploymentService employmentService;
+    private final EmploymentService employmentService;
 
     public EmploymentController(EmploymentService boardService) {
         this.employmentService = boardService;
     }
-<<<<<<< HEAD
+
     @GetMapping("/employ/modify")
     public Long employModify(@RequestBody Map<String,Object> map)throws Exception{
 
@@ -28,7 +24,6 @@ public class EmploymentController {
 
     }
 
-=======
 
     @GetMapping("/employ/delete")
     public Long employDelete(@RequestParam Long empId){
@@ -36,6 +31,10 @@ public class EmploymentController {
         return employmentService.employDelete(empId);
     }
 
+    @PostMapping("/employ/submit")
+    public void employSubmit(@RequestBody EmploymentSubmitVO employmentSubmitVO)throws Exception{
+        employmentService.employSubmit(employmentSubmitVO);
+    }
 
->>>>>>> dcd043678b1b934eae92a7c13e94c0f564ea81cc
+
 }
