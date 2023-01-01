@@ -20,8 +20,15 @@ public class EmploymentDetailService {
     private final EmploymentRepository employmentRepository;
 
     public DetailDTO read(Long empId) throws Exception {
-        Employment employment = loadEmp(empId);
-        List<Long> empIdList = getList(employment.getCompany());
+        Employment employment;
+        List<Long> empIdList;
+
+        try {
+            employment = loadEmp(empId);
+            empIdList = getList(employment.getCompany());
+        } catch (IllegalArgumentException e) {
+            throw new IllegalAccessException();
+        }
 
         DetailDTO detailDTO = DetailDTO.builder()
                 .employment(employment)
@@ -36,7 +43,7 @@ public class EmploymentDetailService {
 
         Employment employment;
         if (optional.isPresent()) employment = optional.get();
-        else throw new Exception();
+        else throw new IllegalArgumentException("에러 메세지");
 
         return employment;
     }
