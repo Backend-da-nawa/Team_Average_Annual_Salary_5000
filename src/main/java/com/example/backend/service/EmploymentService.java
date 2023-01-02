@@ -52,7 +52,7 @@ public class EmploymentService {
     }
 
     @Transactional
-    public void employSubmit(EmploymentSubmitVO employmentSubmitVO) throws Exception {
+    public Long employSubmit(EmploymentSubmitVO employmentSubmitVO) throws Exception {
         Optional<Company> optional = companyRepository.findById(employmentSubmitVO.getComId());
 
         Company company;
@@ -75,6 +75,7 @@ public class EmploymentService {
             employmentRepository.save(employment);
         } catch (Exception ignored) {
         }
+        return 1L;
 
     }
 
