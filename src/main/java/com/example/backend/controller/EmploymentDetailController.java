@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class EmploymentDetailController {
     private final EmploymentDetailService employmentDetailService;
 
-
     @GetMapping("/company/emp")
     public DetailDTO read(@RequestParam Long empId) throws Exception {
         return employmentDetailService.read(empId);
