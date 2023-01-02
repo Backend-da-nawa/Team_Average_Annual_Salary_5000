@@ -1,4 +1,4 @@
 package com.example.backend.featureTest;
 
-public class SearchEmpTest {
+public class LoadCompanyEmpTest {
 }
