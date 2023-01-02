@@ -1,5 +1,6 @@
 package com.example.backend.entity;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.ToString;
@@ -19,7 +20,7 @@ public class Company {
     private Long id;
 
     @OneToMany(mappedBy = "company",
-            fetch = FetchType.LAZY,
+            fetch = FetchType.EAGER,
             cascade = CascadeType.ALL)
     @ToString.Exclude
     private List<Employment> employments;
@@ -32,5 +33,13 @@ public class Company {
 
     @Column(name = "com_area")
     private String area;
+
+    @Builder
+    public Company(Long id, String name, String country, String area) {
+        this.id = id;
+        this.name = name;
+        this.country = country;
+        this.area = area;
+    }
 
 }
