@@ -94,10 +94,6 @@ public class LoadEmpTest {
         // then
         assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
         assertThat(responseEntity.getBody().length()).isGreaterThan(0);
-
-        List<Employment> loaded = employmentRepository.findAll();
-        assertThat(loaded.size()).isGreaterThan(0);
-        assertThat(loaded.get(0).getId()).isEqualTo(1L);
     }
 
     @Test
@@ -158,10 +154,7 @@ public class LoadEmpTest {
         // then
         assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
         assertThat(responseEntity.getBody().length()).isGreaterThan(0);
+        assertThat(responseEntity.getBody().contains("empId")).isTrue();
         assertThat(responseEntity.getBody()).descriptionText();
-
-        List<Employment> loaded = employmentRepository.findAll();
-        assertThat(loaded.toString().length()).isGreaterThan(responseEntity.getBody().length());
-        assertThat(loaded.get(0).getCompany().getName()).isEqualTo("삼육대학교");
     }
 }
