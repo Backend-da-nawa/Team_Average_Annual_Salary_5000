@@ -18,6 +18,9 @@ import java.util.List;
 import java.util.Optional;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.util.UriComponents;
+import org.springframework.web.util.UriComponentsBuilder;
+
 import java.util.ArrayList;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
@@ -181,11 +184,11 @@ public class LoadEmpTest {
                 .build();
 
 
-        Employment old = employmentRepository.save(oldEmploy);
+        employmentRepository.save(oldEmploy);
 
         String url = "http://localhost:" + port + "/employ/delete?empId=" + id;
-        restTemplate.delete(url);
-
+        UriComponents uri = UriComponentsBuilder.fromUriString(url).encode().build();
+        restTemplate.delete(uri.toUri());
 
         List<Employment> deleted = employmentRepository.findAll();
         assertThat(deleted.size()).isEqualTo(0);
