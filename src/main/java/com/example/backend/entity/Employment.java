@@ -18,7 +18,7 @@ public class Employment {
 
     @JsonIgnore
     @JoinColumn(name = "com_id")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @ToString.Exclude
     private Company company;
 
