@@ -1,5 +1,4 @@
-<img src="https://capsule-render.vercel.app/api?type=Wave&color=auto&height=200&section=header&text=Backend - Danawa&fontSize=90" />
-
+<img src="https://capsule-render.vercel.app/api?type=waving&color=auto&height=200&section=header&text=Backend-Danawa&fontSize=90" />
 -------------
 # Project : Employment
 
