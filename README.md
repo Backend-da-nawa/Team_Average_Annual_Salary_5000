@@ -148,8 +148,7 @@
 
 ---
 ## ERD
-![gdsc_week1_ERD.png](..%2F..%2FDownloads%2Fgdsc_week1_ERD.png)
-
+![gdsc_week1_ERD.png](docs%2Fgdsc_week1_ERD.png)
 ---
 ## Test-Code
 
