@@ -151,5 +151,7 @@
 ---
 ## Test-Code
 
+- [회사 공고 상세 조회 테스트](https://github.com/Backend-da-nawa/Team_Average_Annual_Salary_5000/blob/main/src/test/java/com/example/backend/featureTest/LoadCompanyEmpTest.java)
+- [회사 공고 등록/수정/삭제/조회/검색 테스트](https://github.com/Backend-da-nawa/Team_Average_Annual_Salary_5000/blob/main/src/test/java/com/example/backend/featureTest/LoadEmpTest.java)
 
 
