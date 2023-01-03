@@ -20,7 +20,7 @@ public class Company {
     private Long id;
 
     @OneToMany(mappedBy = "company",
-            fetch = FetchType.EAGER,
+            fetch = FetchType.LAZY,
             cascade = CascadeType.ALL)
     @ToString.Exclude
     private List<Employment> employments;
