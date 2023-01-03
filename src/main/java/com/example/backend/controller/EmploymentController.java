@@ -31,8 +31,8 @@ public class EmploymentController {
     }
 
     @PostMapping("/employ/submit")
-    public void employSubmit(@RequestBody EmploymentSubmitVO employmentSubmitVO) throws Exception {
-        employmentService.employSubmit(employmentSubmitVO);
+    public Long employSubmit(@RequestBody EmploymentSubmitVO employmentSubmitVO) throws Exception {
+        return employmentService.employSubmit(employmentSubmitVO);
     }
 
     @GetMapping("/employ/load")
